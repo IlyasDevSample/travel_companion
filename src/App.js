@@ -1,9 +1,10 @@
 import React from 'react'
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
+    console.log('done')
+    return (
+        <div>App</div>
+    )
 }
 
 export default App
