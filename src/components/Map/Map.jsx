@@ -7,7 +7,7 @@ const Map = () => {
 
     const coordinates = {
         lat: 33.9693414,
-        lng: -6.8713035
+        lng: -6.8712035
     }
 
     return (
