@@ -1,0 +1,54 @@
+.appBar {
+    background-color: rgb(0, 136, 255);
+}
+.toolBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 55px;
+}
+.toolBar h5 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    min-width: 240px;
+}
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.searchBox h6 {
+    font-size: 1rem;
+    font-family: "Quicksand", sans-serif;
+}
+.search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 4px 7px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+.icon {
+    cursor: pointer;
+}
+.placeHolder {
+    color: rgb(255, 255, 255);
+}
+@media (width <= 900px) {
+    .searchBox h6 {
+        display: none;
+    }
+    
+}
+@media (width <= 526px){
+    .toolBar h5 {
+        margin-bottom: 10px;
+    }
+    .toolBar{
+        justify-content: center;
+        padding: 10px 0;
+    }
+}
