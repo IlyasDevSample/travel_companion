@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #f6f6f6;
+    box-shadow: inset 0px 2px 3px rgb(187, 187, 187);
+    height: calc(100vh - 64px);
+}
+.formContainer {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    padding: 0px 10px;
+    overflow-y: auto;
+    max-height: calc(100vh - 64px);
+}
+.formContainer h4 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: rgb(87, 87, 87);
+    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.formContainer label {
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.selectInput {
+    min-width: 150px;
+    border-bottom: 1px solid rgb(156, 156, 156);
+    margin: 0 5px;
+}
+@media (width <= 900px) {
+    .container {
+        align-items: flex-start;
+    }
+    .formContainer {
+        max-width: unset;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .formContainer::-webkit-scrollbar {
+        display: none;
+    }
+}
+.circularProgress {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 150px;
+
+}

@@ -1,28 +1,42 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
-import { Paper, Typography, useMediaQuery } from '@mui/material'
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import styles from './style.module.css';
+import PlaceMarker from './PlaceMarker';
 
-const Map = () => {
 
-    const coordinates = {
-        lat: 33.9693414,
-        lng: -6.8712035
-    }
+const restaurant = 'restaurant'
+const hotel = 'hotel'
+const attraction = 'attraction'
+
+const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }) => {
 
     return (
-        <div style={{ height: 'calc(100vh - 64px)', width: '100%', marginLeft: '12px', margin: 'auto' }}>
+        <div className={styles.mapBox}>
             <GoogleMapReact
-                bootstrapURLKeys={{key:''}}
+                bootstrapURLKeys={{ key: '' }}
                 defaultCenter={coordinates}
                 center={coordinates}
                 defaultZoom={14}
                 margin={[50, 50, 50, 50]}
                 options={''}
-                onChange={''}
-                onChildClick={''}
+                onChange={(e) => {
+                    setCoordinates({ lat: e.center.lat, lng: e.center.lng })
+                    setBounds({ ne: e.bounds.ne, sw: e.bounds.sw })
+                }}
+                onChildClick={(child) => setChildClicked(child)}
             >
-
+                {places?.map((place, i) => (
+                    <div
+                        lat={place.latitude}
+                        lng={place.longitude}
+                        key={i}
+                        className={styles.mapMarker}
+                    >
+                        
+                        <PlaceMarker type={restaurant} placeName={place.name} />
+                        
+                    </div>
+                ))}
             </GoogleMapReact>
         </div>
     )
