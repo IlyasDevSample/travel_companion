@@ -3,11 +3,12 @@ import { CssBaseline, Grid } from '@mui/material'
 import Header from './components/Header/Header'
 import List from './components/List/List'
 import Map from './components/Map/Map'
-import { getPlacesData } from './api/index'
+import { getPlacesData, getPlacesWeather } from './api/index'
 
 const App = () => {
     const [places, setPlaces] = useState([])
     const [filteredPlaces, setFilteredPlaces] = useState([])
+    const [weather, setWeather] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const [coordinates, setCoordinates] = useState({})
     const [bounds, setBounds] = useState({})
@@ -24,7 +25,7 @@ const App = () => {
                     lng: coords.longitude
                 })
             }, () => {
-                alert('please Turn on your Location')
+                alert('Please Allow Location')
                 setCoordinates({
                     lat: 33.9693414,
                     lng: -6.8712035
@@ -49,6 +50,19 @@ const App = () => {
         setFilteredPlaces(filteredPlaces)
     }, [rating])
     
+    useEffect(() => {
+
+        getPlacesWeather(coordinates.lat, coordinates.lng)
+            .then((data) => {
+                // console.log(data)
+                setWeather(data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    }, [bounds])
+    
 
     useEffect(() => {
 
@@ -58,10 +72,10 @@ const App = () => {
         setIsLoading(true)
         getPlacesData(bounds.sw, bounds.ne, type)
             .then((data) => {
-                console.log(data)
+                // console.log(data)
                 setFilteredPlaces([])
                 setRating(0)
-                setPlaces(data)
+                setPlaces(data.filter((dta) => dta.rating))
                 setIsLoading(false)
 
             }).catch((err) => {
@@ -90,7 +104,8 @@ const App = () => {
                         setBounds={setBounds}
                         coordinates={coordinates}
                         places={filteredPlaces.length ? filteredPlaces : places}
-                        setChildClicked={setChildClicked} 
+                        setChildClicked={setChildClicked}
+                        weather={weather}
                         />
                 </Grid>
             </Grid>
