@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
 import styles from './style.module.css';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
@@ -12,10 +12,7 @@ const selectStyle = {
     fontFamily: 'Quicksand, sans-serif'
 }
 
-const List = ({ places, childClicked, isLoading }) => {
-
-    const [type, setType] = useState('restaurants')
-    const [rating, setRating] = useState('')
+const List = ({ places, childClicked, isLoading, type, setType, rating, setRating }) => {
 
     return (
         <div className={styles.container}>

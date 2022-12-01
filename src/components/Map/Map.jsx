@@ -32,8 +32,10 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }
                         key={i}
                         className={styles.mapMarker}
                     >
+                        {place.category?.key === restaurant ?  <PlaceMarker type={restaurant} placeName={place.name} /> : null }
+                        {place.subcategory_type === hotel ?  <PlaceMarker type={hotel} placeName={place.name} /> : null }
+                        {place.category?.key === attraction ?  <PlaceMarker type={attraction} placeName={place.name} /> : null }
                         
-                        <PlaceMarker type={restaurant} placeName={place.name} />
                         
                     </div>
                 ))}

@@ -120,11 +120,12 @@
     text-decoration: underline;
 }
 .markerLocation{
-    width: 35px;
+    width: 0px;
+    height: 0px;
     position: relative;
 }
 .markerLocation img{
-    width: 100%;
+    width: 35px;
     position: relative;
     top: 0;
     left: 0;
