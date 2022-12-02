@@ -43,9 +43,9 @@ const App = () => {
 
     useEffect(() => {
         
-        const filteredPlaces = places?.filter((place) => place.rating > rating)
-
-        setFilteredPlaces(filteredPlaces)
+        const filteredPlaces = places?.filter((place) => place?.rating > rating)
+        setFilteredPlaces(filteredPlaces ? filteredPlaces : [] )
+        
     }, [rating])
     
     useEffect(() => {
@@ -98,7 +98,7 @@ const App = () => {
                     <Map setCoordinates={setCoordinates}
                         setBounds={setBounds}
                         coordinates={coordinates}
-                        places={filteredPlaces.length ? filteredPlaces : places}
+                        places={filteredPlaces?.length ? filteredPlaces : places}
                         setChildClicked={setChildClicked}
                         weather={weather}
                         />
