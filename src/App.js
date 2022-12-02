@@ -44,8 +44,6 @@ const App = () => {
     useEffect(() => {
         
         const filteredPlaces = places?.filter((place) => place.rating > rating)
-        // console.log(rating)
-        // console.log(filteredPlaces)
 
         setFilteredPlaces(filteredPlaces)
     }, [rating])
@@ -66,9 +64,6 @@ const App = () => {
 
     useEffect(() => {
 
-        // console.log(bounds)
-        // console.log('local: ' + coordinates.lat, coordinates.lng)
-        // console.log(type)
         setIsLoading(true)
         getPlacesData(bounds.sw, bounds.ne, type)
             .then((data) => {
