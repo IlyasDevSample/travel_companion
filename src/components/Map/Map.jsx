@@ -13,8 +13,8 @@ const attraction = 'attraction'
 
 const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, weather }) => {
 
-    console.log(weather?.lat, weather?.lon)
-    console.log(weather)
+    // console.log(weather?.lat, weather?.lon)
+    // console.log(weather)
 
     return (
         <div className={styles.mapBox}>
