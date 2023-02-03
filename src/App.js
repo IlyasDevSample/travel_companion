@@ -25,7 +25,7 @@ const App = () => {
                     lng: coords.longitude
                 })
             }, () => {
-                // alert('Please Allow Location')
+                alert('Please Allow Location')
                 setCoordinates({
                     lat: 33.9693414,
                     lng: -6.8712035
